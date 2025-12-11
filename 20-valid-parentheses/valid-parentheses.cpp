@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> st;  // stack to store opening brackets
+        stack<char> st; 
         
         for (char c : s) {
           
@@ -21,7 +21,6 @@ public:
                 }
             }
         }
-        
         return st.empty();
     }
 };
