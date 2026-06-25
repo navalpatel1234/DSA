@@ -2,17 +2,24 @@ class Solution {
 public:
     string removeOuterParentheses(string s) {
         string result;
-        int depth = 0;
+        int balance = 0;
 
-        for (char c : s) {
-            if (c == '(') {
-                if (depth > 0) result += c; // skip outermost '('
-                depth++;
+        for (char ch : s) {
+            if (ch == '(') {
+                // Only add '(' if it's not the outermost
+                if (balance > 0) {
+                    result += ch;
+                }
+                balance++;
             } else {
-                depth--;
-                if (depth > 0) result += c; // skip outermost ')'
+                balance--;
+                // Only add ')' if it's not the outermost
+                if (balance > 0) {
+                    result += ch;
+                }
             }
         }
         return result;
     }
 };
+
